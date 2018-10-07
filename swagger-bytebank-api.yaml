@@ -1,65 +1,35 @@
-#versao do swagger
 swagger: "2.0"
 
-#tipo de protocolo de comunicacao
 schemes:
-  - http 
+  - https 
 
-#url da api
 host: localhost:8080
 basePath: /bytebank-api/v1
 
-# informacoes basicas da api
 info:
-  version: "8.0.0"
+  version: "9.0.0"
   title: ByteBank Api
-  description: Bytebank API recupera as informações das movimentações bancárias do correntista ByteBank. Para este correntista ByteBank acessar suas informações de movimentação precisa também passar o usuário e senha.
-
+  description: Adminstra a movimentação bancária do correntista ByteBank e controla o acesso através de CPF e senha.
   contact:
-    name: Bytebank API Support
-    email: suporte@bytebank.com
-    url: http://localhost:8080/bytebank-api/suporte
+    name: Support
+    email: support@bytebank.com
 
-# tipo de arquivo utilizado na requisicao
 consumes: 
   - application/json
 
-# tipo de arquivo produzido na resposta
 produces: 
   - application/json
 
-#agrupador de operacoes
-tags: 
-  - name: Cliente
-  - name: Conta
-  - name: API
-
-# tipo de seguranca
 securityDefinitions:
   BasicAuth:
     type: basic
 
-# nivel de acesso
 security: 
   - BasicAuth: []
 
-#endpoinsts da api
 paths:
   
-  /readMe:
-    get:
-      tags:
-        - API
-      summary: Informações sobre a API
-      description: Esta operação descreve como a API funciona
-      operationId: readMe
-      responses:
-        '200':
-          description: ReadMe recuperado com sucesso!
-        '500':
-          description: Erro no servidor.
-  
-  /cliente:
+  '/cliente':
     post:
       tags: 
         - Cliente   
@@ -82,7 +52,7 @@ paths:
         '500':
           description: Erro no servidor
             
-  /conta/{agencia}/{conta}/{digito}/saldo:
+  '/conta/{agencia}/{conta}/{digito}/saldo':
     get:
       tags: 
         - Conta
@@ -101,6 +71,8 @@ paths:
           required: true
           type: integer
           format: int32
+          minLength: 4
+          maxLength: 4
         - in: path
           name: conta
           required: true
@@ -130,10 +102,60 @@ paths:
         '500':
           description: Erro no servidor
   
-  /conta/transacao:
+  '/extrato/{agencia}/{conta}/{digito}':
+    get:
+      tags: 
+        - Extrato
+      summary: Consulta Extrato Conta
+      description: Consulta o extrato da conta do cliente utilizando agencia e conta.
+      operationId: consultaExtrato
+      security:
+        - BasicAuth: []
+      parameters:
+        - in: header
+          name: Authorization
+          type: string
+          required: true
+        - in: path
+          name: agencia
+          required: true
+          type: integer
+          format: int32
+          minLength: 4
+          maxLength: 4
+        - in: path
+          name: conta
+          required: true
+          type: integer
+          format: int64
+          minLength: 4
+          maxLength: 6
+        - in: path
+          name: digito
+          required: true
+          type: integer
+          format: int32
+          minLength: 1
+          maxLength: 1
+      responses:
+        '200':
+          description: Consulta a extrato efetuada com sucesso!
+          schema:
+            $ref: '#/definitions/Extrato'
+        '400':  
+          description: Requisição inválida.
+        '401':  
+          description: Requisição não autorizada.
+        '404':  
+          description: Registro não encontrado.
+        '500':
+          description: Erro no servidor
+
+  
+  '/transacao':
     post:
       tags: 
-        - Conta
+        - Transacao
       summary: Transacao em Conta 
       description: Efetua uma transacao de saque ou deposito em conta.
       operationId: novaTransacao
@@ -168,57 +190,11 @@ paths:
         '500':
           description: Erro no servidor.
   
-  /conta/{agencia}/{conta}/{digito}/extrato:
-    get:
-      tags: 
-        - Conta
-      summary: Consulta Extrato Conta
-      description: Consulta o extrato da conta do cliente utilizando agencia e conta.
-      operationId: consultaExtrato
-      security:
-        - BasicAuth: []
-      parameters:
-        - in: header
-          name: Authorization
-          type: string
-          required: true
-        - in: path
-          name: agencia
-          required: true
-          type: integer
-          format: int32
-        - in: path
-          name: conta
-          required: true
-          type: integer
-          format: int64
-          minLength: 4
-          maxLength: 6
-        - in: path
-          name: digito
-          required: true
-          type: integer
-          format: int32
-          minLength: 1
-          maxLength: 1
-      responses:
-        '200':
-          description: Consulta a extrato efetuada com sucesso!
-          schema:
-            $ref: '#/definitions/Extrato'
-        '400':  
-          description: Requisição inválida.
-        '401':  
-          description: Requisição não autorizada.
-        '404':  
-          description: Registro não encontrado.
-        '500':
-          description: Erro no servidor
-
-  '/conta/transacao/{codigo}':
+  
+  '/transacao/{codigo}':
     put:
       tags: 
-        - Conta
+        - Transacao
       summary: Atualiza a transação
       description: Atualiza o valor da transação existente.
       operationId: atualizaValorTransacao
@@ -240,7 +216,7 @@ paths:
           format: double  
           required: true
       responses:
-        '202':
+        '204':
           description: Atualização efeturada com sucesso!
         '400':  
           description: Requisição inválida.
@@ -253,7 +229,7 @@ paths:
     
     delete:
       tags: 
-        - Conta
+        - Transacao
       summary: Estorna a transação
       description: Estorna a transação efetuada.
       operationId: estornaTransacao
@@ -281,7 +257,11 @@ paths:
         '500':
           description: Erro no servidor
             
-    
+tags: 
+  - name: Cliente
+  - name: Conta
+  - name: Extrato
+  - name: Transacao
             
 definitions:
   
