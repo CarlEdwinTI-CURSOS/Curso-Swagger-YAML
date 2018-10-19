@@ -96,8 +96,8 @@ paths:
   
   '/transacao':
     post:
-      summary: Cadastra Transacao 
-      description: Efetua uma transacao de debito ou deposito em conta.
+      summary: Cadastra Transacao na Conta 
+      description: Cadastra uma transacao de debito ou deposito na conta.
       operationId: cadastraTransacao
       security: 
         - BasicAuth: []
@@ -177,3 +177,7 @@ definitions:
         example: 101.34
       cliente:
         $ref: '#/definitions/Cliente'
+      transacoes:
+        type: array
+        items:
+          $ref: '#/definitions/Transacao'
