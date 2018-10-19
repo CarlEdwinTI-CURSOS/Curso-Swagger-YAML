@@ -7,6 +7,16 @@ schemes:
 host: localhost:8085
 basePath: /bytebank-api/v1
 
+info:
+  version: 1.0.0
+  title: ByteBank Api
+  description: Adminstra a movimentação bancária do correntista e controla o acesso através de CPF e senha.
+  termsOfService: http://localhost:8085/bytebank-api/v1/termo-uso
+  contact:
+    name: Suporte
+    url: http://localhost:8085/bytebank-api/v1/suporte
+    email: suporte@bytebankapi.com
+
 consumes: 
   - application/json
 produces: 
@@ -19,16 +29,6 @@ securityDefinitions:
 security: 
   - BasicAuth: []  
 
-info:
-  version: 1.0.0
-  title: ByteBank Api
-  description: Adminstra a movimentação bancária do correntista e controla o acesso através de CPF e senha.
-  termsOfService: http://localhost:8085/bytebank-api/v1/termo-uso
-  contact:
-    name: Suporte
-    url: http://localhost:8085/bytebank-api/v1/suporte
-    email: suporte@bytebankapi.com
-  
 paths:
   '/cliente':
     post:
