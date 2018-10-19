@@ -89,32 +89,3 @@ definitions:
         example: 101.34
       cliente:
         $ref: '#/definitions/Cliente'
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
