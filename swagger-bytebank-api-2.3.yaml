@@ -120,7 +120,7 @@ paths:
           required: true
       responses:
         '201':
-          description: Transação efeturada com sucesso!
+          description: Transação cadastrada com sucesso!
           schema:
             $ref: '#/definitions/Transacao'
         '400':  
