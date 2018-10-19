@@ -53,10 +53,8 @@ paths:
   
   '/conta/{agencia}/{conta}/{digito}/saldo':
     get:
-      tags: 
-        - Conta
-      summary: Consulta Saldo Conta
-      description: Consulta o saldo da conta do cliente utilizando agencia e conta.
+      summary: Consulta Saldo
+      description: Consulta o saldo da conta do cliente.
       operationId: consultaSaldo
       security:
         - BasicAuth: []
