@@ -17,6 +17,7 @@ info:
     url: http://localhost:8085/bytebank-api/v1/suporte
     email: suporte@bytebankapi.com
 
+
 securityDefinitions:
   BasicAuth:
     type: basic
@@ -29,6 +30,12 @@ consumes:
 produces: 
   - application/json
 
+tags: 
+  - name: Cliente
+  - name: Conta
+  - name: Extrato
+  - name: Transacao
+  
 paths:
   '/cliente':
     post:
@@ -51,6 +58,7 @@ paths:
           description: Requisição inválida
         500:
           description: Erro interno no servidor
+          
           
   '/conta/{agencia}/{numero}/{digito}/saldo':
     get:
@@ -131,7 +139,7 @@ paths:
           description: Requisição não autorizada 
         500:
           description: Erro no servidor
-          
+    
   '/extrato/{agencia}/{numero}/{digito}':
     get:
       tags: 
@@ -163,26 +171,27 @@ paths:
           required: true
       responses:
         200:
-          description: Consulta ao extrato efetuada com sucesso
+          description: Consulta de extrato efetuada com sucesso
           schema:
-            $ref: '#/definitions/Extrato'
+            type: number
+            format: double
         400:
           description: Requisição inválida
         401:
           description: Requisição não autorizada 
         500:
           description: Erro no servidor
-          
+    
   '/transacao/{codigo}':
     put:
       tags: 
         - Transacao
-      summary: Altera a transação
-      description: Altera o valor da transação existente.
-      operationId: alteraValorTransacao
+      summary: Altera o valor da Transação
+      description: Altera o valor da transação existente na conta do cliente
       security: 
         - BasicAuth: []
-      parameters:
+      operationId: alteraValorTransacao  
+      parameters: 
         - in: path
           name: codigo
           type: integer
@@ -191,60 +200,50 @@ paths:
         - in: query
           name: valor
           type: number
-          format: double  
+          format: double
           required: true
         - in: header
           name: Authorization
           type: string
-          required: true  
+          required: true 
       responses:
-        '204':
-          description: Alteração efeturada com sucesso!
-        '400':  
-          description: Requisição inválida.
-        '401':  
-          description: Requisição não autorizada.
-        '404':  
-          description: Registro não encontrado.  
-        '500':
-          description: Erro no servidor.
-          
+        204:
+          description: Alteração do valor efetuada com sucesso
+        400:
+          description: Requisição inválida
+        401:
+          description: Requisição não autorizada 
+        500:
+          description: Erro no servidor
+       
     delete:
       tags: 
         - Transacao
-      summary: Exclui a transação
-      description: Exclui a transação existente.
+      summary: Exclui a Transação
+      description: Exclusão da transação existente na conta do cliente
       operationId: excluiTransacao
       security: 
         - BasicAuth: []
-      parameters:
+      parameters: 
         - in: path
           name: codigo
-          required: true
           type: integer
           format: int64
+          required: true
         - in: header
           name: Authorization
           type: string
-          required: true  
+          required: true 
       responses:
-        '204':
-          description: Exclusão efetuada com sucesso
-        '400':  
-          description: Requisição inválida.
-        '401':  
-          description: Requisição não autorizada.
-        '404':  
-          description: Registro não encontrado.  
-        '500':
-          description: Erro no servidor 
-          
-tags: 
-  - name: Cliente
-  - name: Conta
-  - name: Extrato
-  - name: Transacao          
-          
+        204:
+          description: Transação excluida com sucesso
+        400:
+          description: Requisição inválida
+        401:
+          description: Requisição não autorizada 
+        500:
+          description: Erro no servidor  
+ 
 definitions:
   
   Cliente:
@@ -316,11 +315,3 @@ definitions:
         format: date-time
       conta:
         $ref: '#/definitions/Conta'
-  
-  Extrato:
-    type: object
-    properties:
-      transacoes:
-        type: array
-        items:
-          $ref: '#/definitions/Transacao'      
