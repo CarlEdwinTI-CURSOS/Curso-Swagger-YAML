@@ -17,6 +17,7 @@ info:
     url: http://localhost:8085/bytebank-api/v1/suporte
     email: suporte@bytebankapi.com
 
+
 securityDefinitions:
   BasicAuth:
     type: basic
@@ -28,7 +29,7 @@ consumes:
   - application/json
 produces: 
   - application/json
-
+ 
 paths:
   '/cliente':
     post:
@@ -49,7 +50,7 @@ paths:
           description: Requisição inválida
         500:
           description: Erro interno no servidor
-          
+                 
   '/conta/{agencia}/{numero}/{digito}/saldo':
     get:
       summary: Consulta Saldo
@@ -125,7 +126,7 @@ paths:
           description: Requisição não autorizada 
         500:
           description: Erro no servidor
-          
+    
   '/extrato/{agencia}/{numero}/{digito}':
     get:
       summary: Consulta Extrato
@@ -155,16 +156,17 @@ paths:
           required: true
       responses:
         200:
-          description: Consulta ao extrato efetuada com sucesso
+          description: Consulta de extrato efetuada com sucesso
           schema:
-            $ref: '#/definitions/Extrato'
+            type: number
+            format: double
         400:
           description: Requisição inválida
         401:
           description: Requisição não autorizada 
         500:
           description: Erro no servidor
-          
+       
 definitions:
   
   Cliente:
@@ -236,11 +238,3 @@ definitions:
         format: date-time
       conta:
         $ref: '#/definitions/Conta'
-  
-  Extrato:
-    type: object
-    properties:
-      transacoes:
-        type: array
-        items:
-          $ref: '#/definitions/Transacao'      
