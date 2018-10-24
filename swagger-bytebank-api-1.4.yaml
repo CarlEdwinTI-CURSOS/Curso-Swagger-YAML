@@ -11,15 +11,12 @@ info:
   version: 1.0.0
   title: ByteBank Api
   description: Administra a movimentação bancária do correntista e controla o acesso através de CPF e senha.
-  termsOfService: http://localhost:8085/bytebank-api/termos-uso
+  termsOfService: http://localhost:8085/bytebank-api/v1/termos-uso
   contact:
     name: Suporte
-    url: http://localhost:8085/bytebank-api/suporte
+    url: http://localhost:8085/bytebank-api/v1/suporte
     email: suporte@bytebankapi.com
-  license:
-    name: Lincença
-    url: http://localhost:8085/bytebank-api/licenca
-
+  
 paths:
   '/cliente':
     post:
