@@ -14,3 +14,7 @@ Remoção de consumes e produces duplicados
 Criação da operação Cadastra Transação
 Definição de parameter in: query e type:string:enum
 Definição de array de referência à ao modelo Transação no modelo Conta
+
+## Video 2.4
+Definição do modelo Transação
+Definição de type:string:date-time e type:number:double
