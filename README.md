@@ -4,6 +4,7 @@
 Definição da versão do swagger
 Criação da operação Cadastra Cliente
 Criação de objeto cliente propriedade titular e response 201 com objeto cliente
+Definição de parameters com in: body
 
 ## Video 1.3
 Criação de referência ao modelo Cliente
