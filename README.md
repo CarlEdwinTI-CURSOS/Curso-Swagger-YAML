@@ -15,3 +15,8 @@ Definição do modelo Cliente
 Definição do modelo Conta
 Definição de types(format, example, minLength, maxLength) para os properties
 Alteração dos schemas para parameters e response 2.1 para referência ao modelo Cliente
+
+## Video 1.4
+Definição de protocolos com schemes
+Definição de host e basePath
+Definição de info(version, title, descrition, termsOfService, contact(name, url, email), licence(name, url))
