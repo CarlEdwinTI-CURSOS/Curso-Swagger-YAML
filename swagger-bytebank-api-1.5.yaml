@@ -78,12 +78,6 @@ definitions:
         items:
           $ref: '#/definitions/Conta'
 
-
-
-
-
-
-
   Conta:
     type: object
     properties:
@@ -107,8 +101,3 @@ definitions:
         $ref: '#/definitions/Cliente'
       transacoes:
         {}
-        
-        
-        
-        
-  
