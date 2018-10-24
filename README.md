@@ -13,7 +13,7 @@ Criação de referência ao modelo Cliente
 Definição da seção definitions
 Definição do modelo Cliente
 Definição do modelo Conta
-Definição de types(format, example, minLength, maxLength) para os properties
+Definição de types(format, example, minLength, maxLength, int32 e int64) para os properties
 Alteração dos schemas para parameters e response 2.1 para referência ao modelo Cliente
 
 ## Video 1.4
