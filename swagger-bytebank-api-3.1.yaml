@@ -10,13 +10,12 @@ basePath: /bytebank-api/v1
 info:
   version: 1.0.0
   title: ByteBank Api
-  description: Adminstra a movimentação bancária do correntista e controla o acesso através de CPF e senha.
-  termsOfService: http://localhost:8085/bytebank-api/v1/termo-uso
+  description: Administra a movimentação bancária do correntista e controla o acesso através de CPF e senha.
+  termsOfService: http://localhost:8085/bytebank-api/v1/termos-uso
   contact:
     name: Suporte
     url: http://localhost:8085/bytebank-api/v1/suporte
     email: suporte@bytebankapi.com
-
 
 securityDefinitions:
   BasicAuth:
@@ -29,7 +28,7 @@ consumes:
   - application/json
 produces: 
   - application/json
- 
+
 paths:
   '/cliente':
     post:
@@ -50,7 +49,7 @@ paths:
           description: Requisição inválida
         500:
           description: Erro interno no servidor
-                 
+  
   '/conta/{agencia}/{numero}/{digito}/saldo':
     get:
       summary: Consulta Saldo
@@ -90,42 +89,42 @@ paths:
           description: Requisição não autorizada 
         500:
           description: Erro no servidor
-          
+
   '/transacao':
     post:
-      summary: Cadastra Transação na Conta
-      description: Cadastra uma tranção de débito ou desposito na conta. 
+      summary: Cadastra Transacao na Conta 
+      description: Cadastra uma transacao de debito ou deposito na conta.
+      operationId: cadastraTransacao
       security: 
         - BasicAuth: []
-      operationId: cadastraTransacao
-      parameters: 
+      parameters:
         - in: header
-          type: string
           name: Authorization
+          type: string
           required: true
         - in: body
           name: transacao
           schema:
             $ref: '#/definitions/Transacao'
-          required: true  
+          required: true
         - in: query
           name: tipo
           type: string
-          enum: 
-            - debito
-            - deposito
-          required: true  
+          enum:
+          - debito
+          - deposito
+          required: true
       responses:
-        201:
-          description: Cadastro de transação efetuado com sucesso.
+        '201':
+          description: Transação cadastrada com sucesso!
           schema:
             $ref: '#/definitions/Transacao'
-        400:
-          description: Requisição inválida
-        401:
-          description: Requisição não autorizada 
-        500:
-          description: Erro no servidor
+        '400':  
+          description: Requisição inválida.
+        '401':  
+          description: Requisição não autorizada.
+        '500':
+          description: Erro no servidor.
     
   '/extrato/{agencia}/{numero}/{digito}':
     get:
@@ -168,7 +167,6 @@ paths:
           description: Erro no servidor
        
 definitions:
-  
   Cliente:
     type: object
     properties:
@@ -178,40 +176,40 @@ definitions:
         example: 234
       titular:
         type: string
-        example: Janete Silva
+        example: Janete Santos
       cpf:
         type: string
-        maxLength: 11
         minLength: 11
+        maxLength: 11
         example: 01234567890
       senha:
         type: string
         format: password
         example: senha123
-      conta:
+      contas:
         type: array
         items:
           $ref: '#/definitions/Conta'
-    
+          
   Conta:
     type: object
     properties:
       agencia:
         type: integer
         format: int32
-        example: 975
+        example: 65
       numero:
         type: integer
         format: int64
-        example: 784563
+        example: 4454
       digito:
         type: integer
         format: int32
-        example: 7
+        example: 1
       saldo:
         type: number
         format: double
-        example: 101.34
+        example: 100.34
       cliente:
         $ref: '#/definitions/Cliente'
       transacoes:
@@ -227,7 +225,7 @@ definitions:
         format: int64
       tipo:
         type: string
-        enum: 
+        enum:
           - debito
           - deposito
       valor:
