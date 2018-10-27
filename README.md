@@ -9,14 +9,13 @@ Definição de paths, summary, consumes, produces, description, responses, schem
 Definição de metodo REST(post)
 
 ## Video 1.3
-Criação de referência ao modelo Cliente
-Definição da seção definitions
-Definição do modelo Cliente
-Definição do modelo Conta
-Definição de types(format, example, minLength, maxLength, int32 e int64) para os properties
-Alteração dos schemas para parameters e response 2.1 para referência ao modelo Cliente
+Definição dos protocolos com schemes
+Definição do host e basePath
+Definição do info(version, title, descrition, termsOfService, contact(name, url, email))
 
 ## Video 1.4
-Definição de protocolos com schemes
-Definição de host e basePath
-Definição de info(version, title, descrition, termsOfService, contact(name, url, email))
+Definição da seção definitions
+Definição do modelo Cliente
+Definição de types(format, example, minLength, maxLength, int32 e int64) para os properties
+Alteração dos schemas para parameters e response 201 para referência ao modelo Cliente
+Criação de referência ao modelo Cliente
