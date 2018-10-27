@@ -1,0 +1,34 @@
+swagger: '2.0'
+
+paths:
+  '/cliente':
+    post:
+      summary: Cadastra Cliente
+      description: Cadastra um novo cliente
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      operationId: cadastraCliente
+      parameters:
+        - in: body
+          name: cliente_
+          schema:
+            type: object
+            properties:
+              titular:
+                type: string
+                example: Janete Silva
+      responses:
+        201:
+          description: Cadastro efetuado com sucesso
+          schema:
+            type: object
+            properties:
+              titular:
+                type: string
+                example: Janete Silva
+        400:
+          description: Requisição inválida
+        500:
+          description: Erro interno no servidor

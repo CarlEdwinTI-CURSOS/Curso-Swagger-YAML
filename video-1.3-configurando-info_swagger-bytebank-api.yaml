@@ -1,0 +1,51 @@
+swagger: '2.0'
+
+schemes:
+  - http
+  - https
+
+host: localhost:8085
+basePath: /bytebank-api/v1
+
+info:
+  version: 1.0.0
+  title: ByteBank Api
+  description: Administra a movimentação bancária do correntista e controla o acesso através de CPF e senha.
+  termsOfService: http://localhost:8085/bytebank-api/v1/termo-uso
+  contact:
+    name: Suporte
+    url: http://localhost:8085/bytebank-api/v1/suporte
+    email: suporte@bytebankapi.com
+
+paths:
+  '/cliente':
+    post:
+      summary: Cadastra Cliente
+      description: Cadastra um novo cliente
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      operationId: cadastraCliente
+      parameters:
+        - in: body
+          name: cliente_
+          schema:
+            type: object
+            properties:
+              titular:
+                type: string
+                example: Janete Silva
+      responses:
+        201:
+          description: Cadastro efetuado com sucesso
+          schema:
+            type: object
+            properties:
+              titular:
+                type: string
+                example: Janete Silva
+        400:
+          description: Requisição inválida
+        500:
+          description: Erro interno no servidor
