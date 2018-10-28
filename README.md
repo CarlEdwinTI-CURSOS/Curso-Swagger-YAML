@@ -16,7 +16,9 @@ Vamos importar a API para o Eclipse, **customizar** as operações e consumir ca
 ```markdown
 ### Swagger
 
-O Swagger é um conjunto de ferramentas de desenvolvedor de API’s Rest, muito poderoso e fácil de usar. O Swagger auxilia em todo o ciclo de vida da API, desde o design, documentação, desenvolvimento, teste até a implantação. O Swagger possui as seguintes ferramentas:
+O Swagger é um conjunto de ferramentas de desenvolvedor de API’s Rest, muito poderoso e fácil de usar. 
+Auxilia em todo o ciclo de vida da API, desde o design, documentação, desenvolvimento, teste até a implantação. 
+O Swagger possui as seguintes ferramentas:
 
 1. **_Swagger Editor_*** – Editor Swagger no navegador.
 2. ***_Swagger UI_*** – Renderizador de documentação interativa semelhante a uma página web.
