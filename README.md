@@ -1,37 +1,29 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/Carl-Alura/Curso-Swagger/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+# Curso-Swagger
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Bem vindo ao Curso de Swagger
 
-### Markdown
+Este tem como foco principal mostrar como é fácil criar APIs REST a partir do Swagger.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Vamos criar o script swagger do zero mostrando as configurações necessárias para gerar a API que no final terá um CRUD completo com as operações de **INCLUSÃO**, **CONSULTA**, **ALTERAÇÃO** e **EXCLUSÃO**.
+
+ Para modelar o script swagger vamos utilizar Swagger Editor e Swagger UI.
+
+ Após finalizarmos a criação do script swagger vamos utilizar o Generate Server para gerar uma API Spring Boot com Java.
+
+ Vamos importar a API para o Eclipse, **customizar** as operações e consumir cada uma utilizando o POSTMAN.
+
+ Não é foco deste curso implementar o conteúdo interno das operações, conectar com o banco de dados , serviços ou APIs.
+
 
 ```markdown
-Syntax highlighted code block
+### Swagger
 
-# Header 1
-## Header 2
-### Header 3
+O Swagger é um conjunto de ferramentas de desenvolvedor de API’s Rest, muito poderoso e fácil de usar. O Swagger auxilia em todo o ciclo de vida da API, desde o design, documentação, desenvolvimento, teste até a implantação.
 
-- Bulleted
-- List
+O Swagger possui as seguintes ferramentas:
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+1. _Swagger Editor_ – Editor Swagger no navegador.
+2. _Swagger UI_ – Renderizador de documentação interativa semelhante a uma página web.
+3. _Swagger Codegen_ – Gera stubs de servidor e bibliotecas de clientes.
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Carl-Alura/Curso-Swagger/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
