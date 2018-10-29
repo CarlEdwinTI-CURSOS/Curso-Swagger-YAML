@@ -1,0 +1,23 @@
+Olá!
+
+Sejam Bem vindos!
+
+O banco fictício ByteBank está criando um aplicativo para que seus correntistas possam acompanhar sua movimentação bancária.
+
+Para este desenvolvimento vários times serão envolvidos.
+
+Teremos o pessoal de Front-End que vai fazer as telas, o pessoal de Data Base que vai cuidar da parte de banco de dados, o Back-End que vai criar a API REST e o pessoal de Quality Software que vai testar tudo isto.
+
+Para que os times possam trabalhar e desenvolver a sua parte da forma correta, aderente as regras de negócio precisamos de uma DOCUMENTAÇÃO ÚNICA PARA TODOS.
+
+Para isto vamos utilizar o Swagger que é um pacote de ferrentas para criar Documentação interativa e APIs REST.
+
+Vamos utilizar o Swagger Editor para gerar o script swagger, veremos também a documentação interativa que é gerada automaticamente pelo Swagger UI, ela é muito semelhante a uma página Web.
+
+Com o script swagger criado vamos com praticamente com um click gerar a API que será em Java com Spring Boot e então baixar o arquivo zip gerado.
+
+Vamos ainda importar esta API REST para o Eclipse e conhecer toda a estrutura gerada.
+
+Por fim vamos acessar esta API no navegador para ver a documentação gerada.
+
+Vamos começar?
