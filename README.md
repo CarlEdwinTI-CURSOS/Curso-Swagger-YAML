@@ -1,4 +1,4 @@
-# Curso-Swagger
+# Aula 3 - Referenciando modelos
 
 ## Video 3.1
 - Criação da operação Cadastra Transação
