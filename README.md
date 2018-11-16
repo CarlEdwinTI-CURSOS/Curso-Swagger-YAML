@@ -1,4 +1,4 @@
-# Curso-Swagger
+# Aula 5 - Conhecendo e testando a API gerada
 
 ## Video 5.1
 - Importando a API para o Eclipse
