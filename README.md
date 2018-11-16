@@ -1,4 +1,4 @@
-# Curso-Swagger
+# Aula 1 - Primeiros passos com Swagger
 
 ## Video 1.2
 - Definição da versão do swagger
