@@ -1,4 +1,4 @@
-## Aula 2 - Configurações avançadas de operações
+# Aula 2 - Configurações avançadas de operações
 
 ## Video 2.1
 - Criação do modelo Conta
