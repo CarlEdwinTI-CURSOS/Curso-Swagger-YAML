@@ -24,3 +24,20 @@ public class ClienteApiController implements ClienteApi {
          }
     }
 ```
+
+Como o nosso foco é customizar as operações para testar a API gerada automaticamente pelo **Generate Server do Swagger**.
+
+Eu já preparei a regra de negócio do backend para ganharmos agilidade na nossa customização.
+
+Tudo isso para que a gente se preocupe somente com a customização.
+
+No backend que preparei foi utilizado o **banco de dados em memória HSQLDB** e **Spring Data**. 
+
+Caso você tenha dúvidas em como criar a camada de negócio de uma API pode ver os cursos de **Spring MVC**,  **Spring Boot** e **Java e JPA**.
+
+
+**Problema:** 
+
+***E agora já customizamos a operação, mas o ClienteService.java e o RespostasUtil.java não exitem em nossa API.***
+
+Vamos resolver isto já já.
