@@ -38,9 +38,6 @@ spring.datasource.driver-class-name=org.hsqldb.jdbcDriver
    </dependency>
 ```
 
-***Acessar a operação POST cadastraCliente***
-http://localhost:8085/bytebank-api/v1/swagger-ui.html#!/Cliente/cadastraCliente 
-
 ***Acessar a classe ClienteApiController.java***
 ```
 import io.swagger.customizacao.service.ClienteService;
@@ -48,5 +45,8 @@ import io.swagger.customizacao.util.RespostasUtil;
 ```
 ***Iniciar a API***
 Startar a API em modo debug.
+
+***Acessar a documentação da API***
+http://localhost:8085/bytebank-api/v1/
 
 Já já vamos chamar novamente a operação de cadastraCliente para ver se está funcionando o cadastro com a customização.
