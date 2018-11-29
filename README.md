@@ -25,6 +25,14 @@ Analisar a operação quando estiver sendo chamada
 
 Chamar a operação de cadastro a partir da documentação interativa
 Preencher as informações de cliente no **body**.
+```
+{
+  "cpf": "01234567890",
+  "senha": "senha123",
+  "titular": "Janete Silva"
+}
+```
+
 Chamar a operação pressionando o botão **TRY IT OUT**
 debugar e explicar o retorno 
 
