@@ -2,8 +2,9 @@
 
 ## Video 2.1 - Importando arquivos de customização
 
-**Baixar a pasta de customização e descompactar**
+**Baixar o arquivo .txt, a pasta de customização e descompactar**
 ```
+properties_pom.txt
 customizacao.zip
 ```
 
@@ -12,6 +13,7 @@ customizacao.zip
 alura-bytebank-api/src/main/java/io/swagger
 ```
 
+**Copiar as configurações de properties do arquivo properties_pom.txt e colar no application.properties**
 ```
 **application.properties**
 #################### datasource ########################
@@ -25,7 +27,7 @@ spring.datasource.url=jdbc:hsqldb:file:./database_in_memory/bytebank_db
 spring.datasource.driver-class-name=org.hsqldb.jdbcDriver
 ```
 
-**.pom**
+**Copiar as dependências do arquivo properties_pom.txt e colar no .pom**
 ```
     <dependency>
 	<groupId>org.springframework.boot</groupId>
