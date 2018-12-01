@@ -38,10 +38,8 @@ public class ClienteService {
 	}
     
 	public Cliente cadastraNovoCliente(Cliente cliente_) {
-		
-		String tokenBasicAuth = AuthUtil.getBasicAuth(cliente_.getCpf(), cliente_.getSenha());
-		
-		ClienteEntity clienteEntity = ClienteConverter.toClienteEntity(cliente_, tokenBasicAuth);
+				
+		ClienteEntity clienteEntity = ClienteConverter.toClienteEntity(cliente_, AuthUtil.getBasicAuth(cliente_.getCpf(), cliente_.getSenha()));
 		
 		clienteEntity = repository.save(clienteEntity);
 			
