@@ -53,7 +53,3 @@ Precisamos agora guardar as informações de retorno do cadastro do cliente onde
   ]
 }
 ```
-
-No dia-a-dia o que mais utilizam para consumir APIs são os clients REST então que tal cadastrarmos mais um cliente, porém utilizando o client REST POSTMAN?
-
-Vamos lá?
