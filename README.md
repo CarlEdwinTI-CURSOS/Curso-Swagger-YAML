@@ -1,90 +1,56 @@
-# Swagger II - aula 2 - Configurando a API
+# Swagger II - aula 3 - Chamando as operações com POSTMAN
 
-## Video 2.3 - Conhecendo as classes de customização do Cliente
+## Video 3.1 -Cadastrando o cliente via POSTMAN
 
-Injeção do ClienteService(cria a comunição entre controller, camada de negócios e banco de dados) e do RespostasUtil(cria as mensagens de resposta 200, 201, 204, 400, 401 e 500).
+No dia a dia as APIs são consumidas através de clients REST nos vamos usar o POSTMAN para isso.
 
-```
-    @Autowired
-	private ClienteService clienteService;
-	
-	@Autowired
-	private RespostasUtil respostasUtil;
-```
+1-Start a API em modo debug através da classe Swagger2Springboot.java.
 
-Camada de Controller chama o método salva() do clienteService para salvar o cliente.
+2-Coloque breakpoint na operação cadastraCliente() na classe ClienteApiController.java.
 
-```
-	public ResponseEntity<Cliente> cadastraCliente(@ApiParam(value = ""  )  @Valid @RequestBody Cliente cliente_) {
-        
-    	try {
-            return clienteService.salva(cliente_);
-         } catch (Exception e) {
-          return respostasUtil.getErroInternoCliente(ClienteService.FALHA_AO_TENTAR_CADASTRAR_UM_CLIENTE);
-         }
-    }
+3-Abra o POSTMAN.
 
-```
+Caso você não tenha ele instalado vá no goolge e digite postman e acesse o link:  
+[Chrome Web Store - POSTMAN](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=pt-BR)
 
-Injeta o repository Clientes para se comunicar com o banco de dados e salvar o cliente efetivamente.
+Selecione o botão Abrir aplicativo para iniciar o POSTMAN.
 
-```
-@Autowired
-    private Clientes repository;
-```
+4-Abra uma nova request no POSTMAN.
 
-Valida o cliente para salvar e chama o método dadastraNovoCliente().
+- Selecione o tipo de operação que será POST
+- Preencha a URL
+- Preencha o HEADER com 
+- Preencha o body com os dados de cadastro do cliente do novo cliente
+- Pressione o botão SEND.
+
+###REQUEST
+|Operação|METHOD|URL|QUERY PARAMS|HEADERS|BODY|
+|--|--|--|--|--|--|
+|cadastraCliente | POST | http://localhost:8085/bytebank-api/v1/cliente| |N/A|Content-Type|{"cpf": "01234567830", "id": 234, "senha": "senha123", "titular": "Ertheni Rockma"} |
+| | | | | | |
+
+
+O retorno **201** cliente cadastrado com sucesso.
 
 ```
-	public ResponseEntity<Cliente> salva(Cliente cliente_) {
-
-		if (ehClienteValidoParaCadastro(cliente_)) {
-			return respostasUtil.getRequisicaoInvalidaCliente(MENSAGEM_DADOS_INVALIDOS);
-		}
-
-		return new ResponseEntity<Cliente>(cadastraNovoCliente(cliente_), HttpStatus.CREATED);
-	}
-```	
-
-Chama o repository para salvar o cliente no banco de dados.
-```    
-	public Cliente cadastraNovoCliente(Cliente cliente_) {
-		
-		String tokenBasicAuth = AuthUtil.getBasicAuth(cliente_.getCpf(), cliente_.getSenha());
-		
-		ClienteEntity clienteEntity = ClienteConverter.toClienteEntity(cliente_, tokenBasicAuth);
-		
-		clienteEntity = repository.save(clienteEntity);
-			
-		return ClienteConverter.toCliente(clienteEntity);
-	}
-```
-
-Recupera o cliente
-```	
-	public ClienteEntity getClienteByAuthorization(String authorization) {
-		String[] basicAuth = AuthUtil.getBasicAuth(authorization);
-		String cpf = basicAuth[0];
-		String password = basicAuth[1];
-		
-		ClienteEntity clienteEntity = repository.findByCpfAndPassword(cpf, password);
-		return clienteEntity;
-	}
-```
-
-Verica se os dados são válidos para o cadastro
-```	
-	public boolean ehClienteValidoParaCadastro(Cliente cliente_) {
-		return StringUtils.isEmpty(cliente_.getTitular()) || StringUtils.isEmpty(cliente_.getCpf()) || StringUtils.isEmpty(cliente_.getSenha());
-	}
-```
-
-
-Classe que se comunica com a tabela Cliente no banco de dados e executa as operações de CRUD
-```
-
-public interface Clientes extends CrudRepository<ClienteEntity, Long> {
-
-	ClienteEntity findByCpfAndPassword(String cpf, String password); 
+{
+    "id": 4,
+    "titular": "Ertheni Rockma",
+    "cpf": "01234567830",
+    "senha": null,
+    "contas": [
+        {
+            "agencia": 8756,
+            "numero": 4,
+            "digito": 0,
+            "saldo": 0,
+            "cliente": null,
+            "transacoes": null
+        }
+    ]
 }
 ```
+
+5-Copie o conteúdo retornado.
+
+**Vamos guardar o conteúdo da resposta de retorno do cliente cadastrado para podermos depois usar nas operações de consulta saldo, extrato ah sem esquecer a o CPF e SENHA que vamos usar para ter acesso a essas operações, pois o usuário precisará ter acesso para poder usar-las.**
