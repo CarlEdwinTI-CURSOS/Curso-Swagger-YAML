@@ -1,0 +1,36 @@
+postman.txt
+
+operação: cadastraCliente
+
+POST - http://localhost:8085/bytebank-api/v1/cliente
+
+HEADER
+Content-Type - application/json
+
+
+BODY
+{
+  "cpf": "01234567830",
+  "id": 234,
+  "senha": "senha123",
+  "titular": "Ertheni Rockma"
+}
+
+
+RESPONSE
+{
+    "id": 4,
+    "titular": "Ertheni Rockma",
+    "cpf": "01234567830",
+    "senha": null,
+    "contas": [
+        {
+            "agencia": 8756,
+            "numero": 4,
+            "digito": 0,
+            "saldo": 0,
+            "cliente": null,
+            "transacoes": null
+        }
+    ]
+}
