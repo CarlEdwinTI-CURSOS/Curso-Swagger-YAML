@@ -34,3 +34,42 @@ RESPONSE
         }
     ]
 }
+
+
+operação: consultaSaldo
+
+GET - http://localhost:8085/bytebank-api/v1/conta/8756/4/0/saldo
+
+HEADER
+Content-Type - application/json
+Authorization - Basic MDEyMzQ1Njc4MzA6c2VuaGExMjM=
+
+BODY
+N/A
+
+
+RESPONSE
+0
+
+
+operação: cadastraTransacao
+
+POST - http://localhost:8085/bytebank-api/v1/transacao?tipo=deposito
+
+HEADER
+Content-Type - application/json
+Authorization - Basic MDEyMzQ1Njc4MzA6c2VuaGExMjM=
+
+BODY
+{
+	"valor":134.67,
+	"conta": {
+		"agencia": 8756,
+		"numero":4,
+		"digito":0
+	}
+}
+
+
+RESPONSE
+501 - Not Implemented

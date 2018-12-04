@@ -1,47 +1,44 @@
-# Swagger II - aula 3 - Chamando as operações com POSTMAN
+# Swagger II - aula 4 - Chamando a operação cadastraTransacao com POSTMAN
 
-## Video 3.3 -Customizando a operação consultaSaldo
+## Video 4.1 -Testando a operação cadastraTransacao
 
-**Customizar a operação consultaSaldo**
-Injetar as classes: 
-            @Autowired
-	private ContaService contaService;
-
-	@Autowired
-	private RespostasUtil respostasUtil;
-
-Alterar o conteúdo da operação consultaSaldo pelo customizado
-           try {
-                      return contaService.consultaSaldo(authorization, agencia, numero, digito);
-              } catch (Exception e) {
-return respostasUtil.getErroInternoDouble(RespostasUtil.MENSAGEM_FALHA_AO_TENTAR_CONSULTAR_SALDO);
-}
 
 **Iniciar a API**
 Startar a API em modo debug.
 
-**Acessar a classe ContaApiController.java**
-Colocar um breakpoint na operação consultaSaldo
+**Acessar a classe TransacaoApiController.java**
+Colocar um breakpoint na operação cadastraTransacao
 
-**POSTMAN REQUEST**
-1-Preencher Authorization na aba Authorization
-Type: Basic Auth
-Username: 01234567830, Password: senha123
+**Acessar a documentação interativa**
+http://localhost:8085/bytebank-api/v1/swagger-ui.html 
 
-2-Pressionar Update Request
+**Expandir a tag e a operação POST**
+Ver os parâmetros necessários para chamar a operação
+-O Authorization no HEADER
+-As informações da transacao no body 
+-O tipo de transação como parâmetro de query no path
 
-3-Preencher a request
-URL: http://localhost:8085/bytebank-api/v1/conta/8756/4/0/saldo
-Authorization: Username: 01234567830, Password: senha123
-Header: Content-Type: application/json
-Header: Authorization: Basic MDEyMzQ1Njc4MzA6c2VuaGExMjM=
+**Criar nova request no POSTMAN**
+-Método: POST
+-URL: http://localhost:8085/bytebank-api/v1/transacao?tipo=deposito
+-Body:{
+	"valor":134.67,
+	"conta": {
+		"agencia": 8756,
+		"numero":4,
+		"digito":0
+	}
+}
+-HEADERS:
+ Content-Type: application/json
+ Basic MDEyMzQ1Njc4MzA6c2VuaGExMjM=
 
-4-Pressionar SEND
+Lembrando que as informações sobre a conta são aqueles que guardamos após o cadastro do cliente.
 
-**Resposta 200 OK **
-A requisição chamou a operação e retornou o saldo da conta real do cliente, que por enquanto é 0.
+Pressionar SEND.
 
-Agora precisamos conseguir fazer um depósito na conta do cliente para que ele fique com saldo em conta. 
-Para isso vamos usar a operação cadastraTransacao para criar um depósito.
+Resposta da requisição
+Retornou o esperado 501 Not Implemented!
 
-Até lá!
+A seguir vamos resolver isso customizando essa transação.
+Até já!
