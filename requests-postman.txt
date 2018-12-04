@@ -34,3 +34,19 @@ RESPONSE
         }
     ]
 }
+
+
+operação: consultaSaldo
+
+GET - http://localhost:8085/bytebank-api/v1/conta/8756/4/0/saldo
+
+HEADER
+Content-Type - application/json
+Authorization - Basic MDEyMzQ1Njc4MzA6c2VuaGExMjM=
+
+BODY
+N/A
+
+
+RESPONSE
+0
