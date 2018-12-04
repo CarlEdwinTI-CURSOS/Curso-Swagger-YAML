@@ -130,7 +130,7 @@ public class TransacaoService {
 		transacao.setValor(transacaoEntity.getValor());
 		transacao.setId(transacaoEntity.getId());
 
-		return new ResponseEntity<Transacao>(transacao, HttpStatus.OK);
+		return new ResponseEntity<Transacao>(transacao, HttpStatus.CREATED);
 	}
 	
 	public ResponseEntity<Void> estorna(String authorization, Long codigo) {
