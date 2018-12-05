@@ -72,3 +72,19 @@ BODY
 
 RESPONSE
 501 - Not Implemented
+
+
+operação: consultaExtrato
+
+GET - http://localhost:8085/bytebank-api/v1/extrato/8756/4/0
+
+HEADER
+Content-Type - application/json
+Authorization - Basic MDEyMzQ1Njc4MzA6c2VuaGExMjM=
+
+BODY
+N/A
+
+
+RESPONSE
+501 Not implemented
