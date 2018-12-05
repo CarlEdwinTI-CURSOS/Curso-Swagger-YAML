@@ -37,7 +37,11 @@ public class ExtratoApiController implements ExtratoApi {
         this.request = request;
     }
 
-    public ResponseEntity<Extrato> consultaExtrato(@ApiParam(value = "",required=true) @PathVariable("agencia") Integer agencia,@ApiParam(value = "",required=true) @PathVariable("numero") Long numero,@ApiParam(value = "",required=true) @PathVariable("digito") Integer digito,@ApiParam(value = "" ,required=true) @RequestHeader(value="Authorization", required=true) String authorization) {
+    public ResponseEntity<Extrato> consultaExtrato(@ApiParam(value = "",required=true) @PathVariable("agencia") Integer agencia,
+    												@ApiParam(value = "",required=true) 
+    												@PathVariable("numero") Long numero,@ApiParam(value = "",required=true) 
+    												@PathVariable("digito") Integer digito,@ApiParam(value = "" ,required=true) 
+    												@RequestHeader(value="Authorization", required=true) String authorization) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
