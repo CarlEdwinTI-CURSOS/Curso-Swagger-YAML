@@ -87,4 +87,44 @@ N/A
 
 
 RESPONSE
-501 Not implemented
+200 Consulta realizada com sucesso!
+
+{
+    "transacoes": [
+        {
+            "id": 1,
+            "tipo": "deposito",
+            "valor": 134.67,
+            "data": null,
+            "conta": null
+        },
+        {
+            "id": 2,
+            "tipo": "debito",
+            "valor": 50,
+            "data": null,
+            "conta": null
+        },
+        {
+            "id": 3,
+            "tipo": "debito",
+            "valor": 23,
+            "data": null,
+            "conta": null
+        },
+        {
+            "id": 4,
+            "tipo": "deposito",
+            "valor": 134.67,
+            "data": null,
+            "conta": null
+        },
+        {
+            "id": 5,
+            "tipo": "debito",
+            "valor": 23.5,
+            "data": null,
+            "conta": null
+        }
+    ]
+}
