@@ -52,5 +52,5 @@ Pressionar SEND.
 
 Retornou o esperado 501 Not Implemented!
 
-A seguir vamos resolver isso customizando essa transação.
+A seguir vamos resolver isso customizando essa operação.
 Até já!
