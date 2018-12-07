@@ -1,28 +1,37 @@
 # Swagger II - aula 6 - Customizando a operação alteraValorTransacao com POSTMAN
 
-## Video 6.1 - Testando a operação alteraValorTransacao
- 
-**Iniciar a API**
+## Video 6.2 - Customizando a operação alteraValorTransacao
 
+
+**Customizar a operação alteraValorTransacao na classe TransacaoApiController.java**
+```
+try {
+			return transacaoService.atualiza(authorization, codigo, valor);
+		} catch (Exception e) {
+			return respostasUtil.getErroInterno(RespostasUtil.MENSAGEM_FALHA_AO_TENTAR_ATUALIZAR_TRANSACAO);
+		}
+```
+
+**Iniciar a API**
 Startar a API em modo debug.
 
-**Acessar a classe TransacaoApiController.java**
+**Chamar novamente a operação alteraValorTransacao via POSTMAN**
 
-Colocar um breakpoint na operação alteraValorTransacao
+- Método: PUT
+- URL: http://localhost:8085/bytebank-api/v1/transacao/4?valor=130.01
+- HEADERS:
+```
+Content-Type: application/json
+ Authorization: Basic MDEyMzQ1Njc4MzA6c2VuaGExMjM=
+```
 
-**Acessar a documentação interativa**
+Pressionar SEND.
 
-http://localhost:8085/bytebank-api/v1/swagger-ui.html 
+**Resposta da requisição**
 
-**Expandir a tag e a operação PUT**
+Retornou o esperado 204 No Content (Alteração efetuada com sucesso).
 
-Ver os parâmetros necessários para chamar a operação
-
-- O código da Transação no path
-- O valor da Transação na query 
-- O Authorization no HEADER
-
-**Consultar extrato para pegar o codigo de alguma transação existente no POSTMAN**
+**Consultar novamente o extrato via POSTMAN para ver se o valor da transacao foi realmente alterado**
 
 ```
 Método: GET
@@ -34,22 +43,12 @@ HEADERS:
 
 Pressionar SEND.
 
-**Criar nova request no POSTMAN**
+Maravilha! O valor da transação foi realmente alterado.
 
-- Método: PUT
-- URL: http://localhost:8085/bytebank-api/v1/transacao/4?valor=130.01
+Agora tem um detalhe, identificamos que existe uma transação que precisa ser excluída.
 
-- HEADERS:
-```
-Content-Type: application/json
- Authorization: Basic MDEyMzQ1Njc4MzA6c2VuaGExMjM=
-```
+Como podemos fazer isso?
 
-Pressionar SEND.
+Chamando a operação que exclui a transação!
 
-**Resposta da requisição**
-
-Retornou o esperado 501 Not Implemented!
-
-A seguir vamos resolver isso customizando essa operação.
-Até já!
+Vamos lá!
