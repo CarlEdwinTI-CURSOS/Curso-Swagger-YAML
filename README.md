@@ -1,6 +1,6 @@
 # Swagger II - aula 6 - Customizando a operação alteraValorTransacao com POSTMAN
 
-## Video 5.1 - Testando a operação alteraValorTransacao
+## Video 6.1 - Testando a operação alteraValorTransacao
  
 **Iniciar a API**
 
@@ -34,16 +34,14 @@ HEADERS:
 
 Pressionar SEND.
 
-
 **Criar nova request no POSTMAN**
 
 - Método: PUT
 - URL: http://localhost:8085/bytebank-api/v1/transacao/4?valor=130.01
 
-```
 - HEADERS:
 ```
- Content-Type: application/json
+Content-Type: application/json
  Authorization: Basic MDEyMzQ1Njc4MzA6c2VuaGExMjM=
 ```
 
