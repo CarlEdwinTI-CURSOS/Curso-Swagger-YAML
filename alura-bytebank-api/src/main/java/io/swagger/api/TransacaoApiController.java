@@ -35,7 +35,11 @@ public class TransacaoApiController implements TransacaoApi {
         this.request = request;
     }
 
-    public ResponseEntity<Void> alteraValorTransacao(@ApiParam(value = "",required=true) @PathVariable("codigo") Long codigo,@NotNull @ApiParam(value = "", required = true) @Valid @RequestParam(value = "valor", required = true) Double valor,@ApiParam(value = "" ,required=true) @RequestHeader(value="Authorization", required=true) String authorization) {
+    public ResponseEntity<Void> alteraValorTransacao(@ApiParam(value = "",required=true) @PathVariable("codigo") Long codigo,
+    												@NotNull @ApiParam(value = "", required = true) 
+    												@Valid @RequestParam(value = "valor", required = true) Double valor,
+    												@ApiParam(value = "" ,required=true) 
+    												@RequestHeader(value="Authorization", required=true) String authorization) {
         String accept = request.getHeader("Accept");
         return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
     }
