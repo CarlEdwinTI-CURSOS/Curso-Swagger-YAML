@@ -1,39 +1,29 @@
-# Swagger II - aula 5 - Customizando a operação consultaExtrato com POSTMAN
+# Swagger II - aula 6 - Customizando a operação alteraValorTransacao com POSTMAN
 
-## Video 5.2 - Customizando a operação consultaExtrato
-
-
-**Customizar a operação consultaSaldo**
-
-Injetar as classes: 
-```
-    @Autowired
-	private ContaService contaService;
-
-	@Autowired
-	private RespostasUtil respostasUtil;
-```
-
-Alterar o conteúdo da operação consultaSaldo pelo customizado
-```
-     try {
-			return contaService.consultaExtrato(authorization, agencia, numero, digito);
-		} catch (Exception e) {
-			return respostasUtil.getErroInternoExtrato(RespostasUtil.MENSAGEM_FALHA_AO_TENTAR_CONSULTAR_EXTRATO);
-		}
-```
-
+## Video 5.1 - Testando a operação alteraValorTransacao
+ 
 **Iniciar a API**
 
 Startar a API em modo debug.
 
-**Acessar a classe ExtratoApiController.java**
+**Acessar a classe TransacaoApiController.java**
 
-Colocar um breakpoint na operação consultaExtrato
+Colocar um breakpoint na operação alteraValorTransacao
+
+**Acessar a documentação interativa**
+
+http://localhost:8085/bytebank-api/v1/swagger-ui.html 
+
+**Expandir a tag e a operação GET**
+
+Ver os parâmetros necessários para chamar a operação
+
+- As informações da conta no path sendo (agencia, numero e digito) 
+- O Authorization no HEADER
 
 
-**Chamar a operação consultaExtrato via POSTMAN**
-```
+**Criar nova request no POSTMAN**
+
 - Método: GET
 - URL: http://localhost:8085/bytebank-api/v1/extrato/8756/4/0 
 
@@ -50,12 +40,7 @@ Pressionar SEND.
 
 **Resposta da requisição**
 
-Retornou 200 - Consulta realizada com sucesso!
+Retornou o esperado 501 Not Implemented!
 
-Agora tem um detalhe, identificamos que existe uma transação que foi cadastrada, mas queremos alterar o valor da transação.
-
-Como podemos fazer isso?
-
-Chamando a operação que altera o valor da transação!
-
-Vamos lá!
+A seguir vamos resolver isso customizando essa operação.
+Até já!
