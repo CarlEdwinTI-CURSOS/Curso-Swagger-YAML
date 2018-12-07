@@ -128,3 +128,19 @@ RESPONSE
         }
     ]
 }
+
+
+operação: alteraValorTransacao
+
+PUT - http://localhost:8085/bytebank-api/v1/transacao/4?valor=130.01
+
+HEADER
+Content-Type - application/json
+Authorization - Basic MDEyMzQ1Njc4MzA6c2VuaGExMjM=
+
+BODY
+N/A
+
+RESPONSE
+501 - Not Implemented
+
