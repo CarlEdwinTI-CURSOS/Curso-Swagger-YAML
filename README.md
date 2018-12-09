@@ -1,6 +1,6 @@
-# Swagger II - aula 6 - Customizando a operação alteraValorTransacao com POSTMAN
+# Swagger II - aula 7 - Customizando a operação excluiTransacao com POSTMAN
 
-## Video 6.1 - Testando a operação alteraValorTransacao
+## Video 7.1 - Testando a operação excluiTransacao
  
 **Iniciar a API**
 
@@ -8,18 +8,17 @@ Startar a API em modo debug.
 
 **Acessar a classe TransacaoApiController.java**
 
-Colocar um breakpoint na operação alteraValorTransacao
+Colocar um breakpoint na operação excluiTransacao
 
 **Acessar a documentação interativa**
 
 http://localhost:8085/bytebank-api/v1/swagger-ui.html 
 
-**Expandir a tag e a operação PUT**
+**Expandir a tag e a operação DELETE**
 
 Ver os parâmetros necessários para chamar a operação
 
 - O código da Transação no path
-- O valor da Transação na query 
 - O Authorization no HEADER
 
 **Consultar extrato para pegar o codigo de alguma transação existente no POSTMAN**
@@ -36,8 +35,8 @@ Pressionar SEND.
 
 **Criar nova request no POSTMAN**
 
-- Método: PUT
-- URL: http://localhost:8085/bytebank-api/v1/transacao/4?valor=130.01
+- Método: DELETE
+- URL: http://localhost:8085/bytebank-api/v1/transacao/2
 
 - HEADERS:
 ```
