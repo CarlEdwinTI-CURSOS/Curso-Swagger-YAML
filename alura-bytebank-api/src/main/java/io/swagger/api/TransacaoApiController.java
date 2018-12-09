@@ -66,7 +66,7 @@ public class TransacaoApiController implements TransacaoApi {
     	try {
 			return transacaoService.exclui(authorization, codigo);
 		} catch (Exception e) {
-			return respostasUtil.getErroInterno(RespostasUtil.MENSAGEM_FALHA_AO_TENTAR_CONSULTAR_EXTRATO);
+			return respostasUtil.getErroInterno(RespostasUtil.MENSAGEM_FALHA_AO_TENTAR_EXCLUIR_TRANSACAO);
 		}
     }
 

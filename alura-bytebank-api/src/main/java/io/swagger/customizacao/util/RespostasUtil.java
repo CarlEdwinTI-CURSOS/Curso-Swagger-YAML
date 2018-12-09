@@ -16,6 +16,8 @@ public class RespostasUtil {
 	public static final String MENSAGEM_FALHA_AO_SALVAR_TRANSACAO = "Falha ao salvar transação.";
 
 	public static final String MENSAGEM_FALHA_AO_TENTAR_ATUALIZAR_TRANSACAO = "Falha ao tentar atualizar transação.";
+	
+	public static final String MENSAGEM_FALHA_AO_TENTAR_EXCLUIR_TRANSACAO = "Falha ao tentar excluir transação.";
 
 	public static final String MENSAGEM_FALHA_AO_TENTAR_CONSULTAR_EXTRATO = "Falha ao tentar consultar extrato.";
 

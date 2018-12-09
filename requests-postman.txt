@@ -1,138 +1,6 @@
-postman.txt
+operação: excluiTransacao
 
-operação: cadastraCliente
-
-POST - http://localhost:8085/bytebank-api/v1/cliente
-
-HEADER
-Content-Type - application/json
-
-
-BODY
-{
-  "cpf": "01234567830",
-  "senha": "senha123",
-  "titular": "Ertheni Rockma"
-}
-
-
-RESPONSE
-{
-    "id": 4,
-    "titular": "Ertheni Rockma",
-    "cpf": "01234567830",
-    "senha": null,
-    "contas": [
-        {
-            "agencia": 8756,
-            "numero": 4,
-            "digito": 0,
-            "saldo": 0,
-            "cliente": null,
-            "transacoes": null
-        }
-    ]
-}
-
-
-operação: consultaSaldo
-
-GET - http://localhost:8085/bytebank-api/v1/conta/8756/4/0/saldo
-
-HEADER
-Content-Type - application/json
-Authorization - Basic MDEyMzQ1Njc4MzA6c2VuaGExMjM=
-
-BODY
-N/A
-
-
-RESPONSE
-0
-
-
-operação: cadastraTransacao
-
-POST - http://localhost:8085/bytebank-api/v1/transacao?tipo=deposito
-
-HEADER
-Content-Type - application/json
-Authorization - Basic MDEyMzQ1Njc4MzA6c2VuaGExMjM=
-
-BODY
-{
-	"valor":134.67,
-	"conta": {
-		"agencia": 8756,
-		"numero":4,
-		"digito":0
-	}
-}
-
-
-RESPONSE
-501 - Not Implemented
-
-
-operação: consultaExtrato
-
-GET - http://localhost:8085/bytebank-api/v1/extrato/8756/4/0
-
-HEADER
-Content-Type - application/json
-Authorization - Basic MDEyMzQ1Njc4MzA6c2VuaGExMjM=
-
-BODY
-N/A
-
-
-RESPONSE
-200 Consulta realizada com sucesso!
-
-{
-    "transacoes": [
-        {
-            "id": 1,
-            "tipo": "deposito",
-            "valor": 134.67,
-            "data": null,
-            "conta": null
-        },
-        {
-            "id": 2,
-            "tipo": "debito",
-            "valor": 50,
-            "data": null,
-            "conta": null
-        },
-        {
-            "id": 3,
-            "tipo": "debito",
-            "valor": 23,
-            "data": null,
-            "conta": null
-        },
-        {
-            "id": 4,
-            "tipo": "deposito",
-            "valor": 134.67,
-            "data": null,
-            "conta": null
-        },
-        {
-            "id": 5,
-            "tipo": "debito",
-            "valor": 23.5,
-            "data": null,
-            "conta": null
-        }
-    ]
-}
-
-
-operação: alteraValorTransacao
-
-PUT - http://localhost:8085/bytebank-api/v1/transacao/4?valor=130.01
+DELETE - http://localhost:8085/bytebank-api/v1/transacao/2
 
 HEADER
 Content-Type - application/json
@@ -145,20 +13,6 @@ RESPONSE
 204 - No Content
 
 
-operação: consultaExtrato
-
-GET - http://localhost:8085/bytebank-api/v1/extrato/8756/4/0
-
-HEADER
-Content-Type - application/json
-Authorization - Basic MDEyMzQ1Njc4MzA6c2VuaGExMjM=
-
-BODY
-N/A
-
-
-RESPONSE
-200 Consulta realizada com sucesso!operação: consultaExtrato
 
 GET - http://localhost:8085/bytebank-api/v1/extrato/8756/4/0
 
@@ -179,13 +33,6 @@ RESPONSE
             "id": 1,
             "tipo": "deposito",
             "valor": 134.67,
-            "data": null,
-            "conta": null
-        },
-        {
-            "id": 2,
-            "tipo": "debito",
-            "valor": 50,
             "data": null,
             "conta": null
         },
@@ -212,3 +59,4 @@ RESPONSE
         }
     ]
 }
+
