@@ -60,9 +60,14 @@ public class TransacaoApiController implements TransacaoApi {
         
     }
 
-    public ResponseEntity<Void> excluiTransacao(@ApiParam(value = "",required=true) @PathVariable("codigo") Long codigo,@ApiParam(value = "" ,required=true) @RequestHeader(value="Authorization", required=true) String authorization) {
-        String accept = request.getHeader("Accept");
-        return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
+    public ResponseEntity<Void> excluiTransacao(@ApiParam(value = "",required=true) @PathVariable("codigo") Long codigo,
+    		@ApiParam(value = "" ,required=true) @RequestHeader(value="Authorization", required=true) String authorization) {
+    	
+    	try {
+			return transacaoService.exclui(authorization, codigo);
+		} catch (Exception e) {
+			return respostasUtil.getErroInterno(RespostasUtil.MENSAGEM_FALHA_AO_TENTAR_CONSULTAR_EXTRATO);
+		}
     }
 
 }

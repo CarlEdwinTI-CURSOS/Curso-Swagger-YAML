@@ -133,7 +133,7 @@ public class TransacaoService {
 		return new ResponseEntity<Transacao>(transacao, HttpStatus.CREATED);
 	}
 	
-	public ResponseEntity<Void> estorna(String authorization, Long codigo) {
+	public ResponseEntity<Void> exclui(String authorization, Long codigo) {
 		ClienteEntity clienteEntity = clienteService.getClienteByAuthorization(authorization);
 		
 		if(clienteEntity == null) {
