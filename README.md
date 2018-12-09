@@ -4,7 +4,8 @@
 
 
 **Customizar a operação excluiTransacao na classe TransacaoApiController.java**
-```try {
+```
+try {
 	  return transacaoService.exclui(authorization, codigo);		
 	} catch (Exception e) {
 	 return respostasUtil.getErroInterno(RespostasUtil.MENSAGEM_FALHA_AO_TENTAR_CONSULTAR_EXTRATO);
