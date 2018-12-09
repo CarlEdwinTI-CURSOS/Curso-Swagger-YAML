@@ -16,7 +16,7 @@ Startar a API em modo debug.
 
 **Chamar novamente a operação excluiTransacao via POSTMAN**
 
-- Método: PUT
+- Método: DELETE
 - URL: http://localhost:8085/bytebank-api/v1/transacao/2
 - HEADERS:
 ```
