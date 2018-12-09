@@ -2,6 +2,13 @@
 
 ## Video 2.1 - Importando arquivos de customização
 
+***OBS.***
+
+**Pessoal essa camadas de customização que contemplam os Services, Repository e persistência de dados no geral foi desenvolvida paralelamente por um outro time enquanto desenvolvia-mos a camada o script swagger.***
+
+***Agora é só importarmos essa camada e usarmos.***
+
+
 **Baixar o arquivo .txt, a pasta de customização e descompactar**
 ```
 properties_pom.txt
