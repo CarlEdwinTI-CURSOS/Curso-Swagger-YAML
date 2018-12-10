@@ -26,20 +26,8 @@ public class ClienteService {
     private Clientes repository;
 	
     @Autowired
-    private Clientes clientes;
-
-    @Autowired
     private RespostasUtil respostasUtil;
-    
-	public ClienteEntity getClienteByAuthorization(String authorization) {
-		String[] basicAuth = AuthUtil.getBasicAuth(authorization);
-		String cpf = basicAuth[0];
-		String password = basicAuth[1];
-		
-		ClienteEntity clienteEntity = clientes.findByCpfAndPassword(cpf, password);
-		return clienteEntity;
-	}
-	
+
 	public ResponseEntity<Cliente> salva(Cliente cliente_) {
 
 		if (ehClienteValidoParaCadastro(cliente_)) {
@@ -48,18 +36,25 @@ public class ClienteService {
 
 		return new ResponseEntity<Cliente>(cadastraNovoCliente(cliente_), HttpStatus.CREATED);
 	}
-	
+    
 	public Cliente cadastraNovoCliente(Cliente cliente_) {
-		
-		String tokenBasicAuth = AuthUtil.getBasicAuth(cliente_.getCpf(), cliente_.getSenha());
-		
-		ClienteEntity clienteEntity = ClienteConverter.toClienteEntity(cliente_, tokenBasicAuth);
+				
+		ClienteEntity clienteEntity = ClienteConverter.toClienteEntity(cliente_, AuthUtil.getBasicAuth(cliente_.getCpf(), cliente_.getSenha()));
 		
 		clienteEntity = repository.save(clienteEntity);
 			
 		return ClienteConverter.toCliente(clienteEntity);
 	}
-
+	
+	public ClienteEntity getClienteByAuthorization(String authorization) {
+		String[] basicAuth = AuthUtil.getBasicAuth(authorization);
+		String cpf = basicAuth[0];
+		String password = basicAuth[1];
+		
+		ClienteEntity clienteEntity = repository.findByCpfAndPassword(cpf, password);
+		return clienteEntity;
+	}
+	
 	public boolean ehClienteValidoParaCadastro(Cliente cliente_) {
 		return StringUtils.isEmpty(cliente_.getTitular()) || StringUtils.isEmpty(cliente_.getCpf()) || StringUtils.isEmpty(cliente_.getSenha());
 	}
