@@ -1,59 +1,35 @@
 # Swagger II - aula 8 - Documentando um projeto existente com Swagger
 
-## Video 8.2 - Criando a documentação inicial da API
-Criar o pacote de configuração
-br.com.alura.funcionarios.api.swagger.configuration
+## Video 8.3 - Criando a documentação inicial da API
 
-**Criar a classe de configuração e anotar Configuration e EnableSwagger2**
+
+**Alterar o @Bean Docket do método api()**
 
 ```
-@Configuration
-@EnableSwagger2
-SwaggerConfiguration.java .
-```
-
-**Tentar importar as @Anotações**
-Dá Erro
-
-**Incluir no .pom as dependências springfox-swagger2 e springfox-swagger-ui.**
-```
-<!--SpringFox dependencies -->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>2.7.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.7.0</version>
-        </dependency>
-```
-
-**Tentar importar novamente as @Anotações**
-```
-import org.springframework.context.annotation.Configuration;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
-```
-
-**Criar o @Bean de configuração para o Swagger**
-```
+Incluir o método .apiInfo(getApiInfo())  com o  logo após o método build(). 
 @Bean
 public Docket api() {
-      return new Docket(DocumentationType.SWAGGER_2)
+ return new Docket(DocumentationType.SWAGGER_2)
 	.select()
-	.apis(RequestHandlerSelectors.basePackage("br.com.alura.funcionarios.api"))
-	.build();
+            .apis(RequestHandlerSelectors.basePackage("br.com.alura.funcionarios.api"))
+	.build()
+	.apiInfo(getApiInfo());
+}
+```
+
+**Criar o método getApiInfo() para configurar a seção info**
+
+```
+private ApiInfo getApiInfo() {
+    return new ApiInfoBuilder()
+       .title("Funcionarios API")
+       .description("API responsável por Cadastrar, Consultar, Alterar e Excluir funcionários")
+       .contact(new Contact("Contato Alura", "http://alura.com.br", "contato@alura.com.br"))
+       .version("1.0.0")
+       .build();
 }
 ```
 
 **Iniciar a API e chamar na URL**
-http://localhost:8080/funcionarios-api/swagger-ui.html para ver o que foi gerado.
+http://localhost:8085/funcionarios-api/swagger-ui.html para ver o que foi gerado.
 
-Maravilha! Já está gerando a documentação interativa do Swagger, inclusive mostrando as operações disponíveis!
-
-E como fazemos para configurar o bloco info da API, para colocar um título, descrição, versão e informações de contato?
-
-Veremos isso a seguir!
-
-Até já!
