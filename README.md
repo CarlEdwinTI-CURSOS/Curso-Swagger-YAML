@@ -1,35 +1,21 @@
 # Swagger II - aula 8 - Documentando um projeto existente com Swagger
 
-## Video 8.3 - Criando a documentação inicial da API
+## Video 8.4 - Gerando o script Swagger automaticamente a partir da API
 
+**Iniciar a API**
+Iniciar a API a partir da classe FuncionariosApiApplication
 
-**Alterar o @Bean Docket do método api()**
+**Gerar o JSON Swagger**
+Para gerar o arquivo Swagger acessar a URL http://localhost:8085/funcionarios-api/v2/api-docs .
 
-```
-Incluir o método .apiInfo(getApiInfo())  com o  logo após o método build(). 
-@Bean
-public Docket api() {
- return new Docket(DocumentationType.SWAGGER_2)
-	.select()
-            .apis(RequestHandlerSelectors.basePackage("br.com.alura.funcionarios.api"))
-	.build()
-	.apiInfo(getApiInfo());
-}
-```
+**Copiar o JSON gerado**
 
-**Criar o método getApiInfo() para configurar a seção info**
+**Acessar o Editor Swagger**
+URL: http://editor.swagger.io/ .  
 
-```
-private ApiInfo getApiInfo() {
-    return new ApiInfoBuilder()
-       .title("Funcionarios API")
-       .description("API responsável por Cadastrar, Consultar, Alterar e Excluir funcionários")
-       .contact(new Contact("Contato Alura", "http://alura.com.br", "contato@alura.com.br"))
-       .version("1.0.0")
-       .build();
-}
-```
+**Confirmar a conversão de JSON para YAML**
+O json será convertido e será exibido um script Swagger em formato YAML semelhante ao que desenvolvemos.
 
-**Iniciar a API e chamar na URL**
-http://localhost:8085/funcionarios-api/swagger-ui.html para ver o que foi gerado.
+Podemos ver também a documentação interativa criada automaticamente.
 
+E cheagamos ao fim.
