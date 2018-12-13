@@ -1,5 +1,8 @@
 # Swagger II - aula 1 - Iniciando a customização da API
 
+Para customizar essa operação precisaremos de um Service para cadastrar o Cliente e precisaremos também enviar uma mensagem de erro caso algo dê errado.
+Vamos pensar que aqui precisaremos injetar então um ClienteService e para facilitar uma classe que trate mensagens de resposta da API.
+
 ## Video 1.3 - Customizando a operação cadastraCliente
 - Remover as variáveis, construtor e imports desnecessários
 - Injetar o service **ClienteService.java** para salvar o cliente
@@ -19,41 +22,18 @@ try {
           return respostasUtil.getErroInternoCliente(ClienteService.FALHA_AO_TENTAR_CADASTRAR_UM_CLIENTE);
          }
 ```
+**Para a customização precisamos criar:**
 
-***Código completo***
-```
-@Controller
-public class ClienteApiController implements ClienteApi {
+- um banco de dados
+- uma conexão com o banco de dados
+- regras de negócio
+- entre outras coisas
 
-	@Autowired
-	private ClienteService clienteService;
-	
-	@Autowired
-	private RespostasUtil respostasUtil;
-	
-    public ResponseEntity<Cliente> cadastraCliente(@ApiParam(value = ""  )  @Valid @RequestBody Cliente cliente_) {
-        
-         try {
-            return clienteService.salva(cliente_);
-         } catch (Exception e) {
-          return respostasUtil.getErroInternoCliente(ClienteService.FALHA_AO_TENTAR_CADASTRAR_UM_CLIENTE);
-         }
-    }
-```
+## Para fazer tudo isso levariamos muito tempo, não? ##
 
-Como o nosso foco é customizar as operações para testar a API gerada automaticamente pelo **Generate Server do Swagger**.
+**Tudo isso já está criado**
+O nosso foco aqui é customizar as operações para testar a API gerada automaticamente pelo **Generate Server do Swagger**.
 
-Eu já preparei a regra de negócio do backend para ganharmos agilidade na nossa customização.
+Nos temos aqui um pacote de customização que já contempla todas essas configurações de banco, conexão e as regras de negócio.
 
-Tudo isso para que a gente se preocupe somente com a customização.
-
-No backend que preparei foi utilizado o **banco de dados em memória HSQLDB** e **Spring Data**. 
-
-Caso você tenha dúvidas em como criar a camada de negócio de uma API pode ver os cursos de **Spring MVC**,  **Spring Boot** e **Java e JPA**.
-
-
-**Problema:** 
-
-## E agora já customizamos a operação, mas o ClienteService.java e o RespostasUtil.java não exitem em nossa API. ##
-
-Vamos resolver isto já já.
+Vamos baixar no exercício desta aula e utilizar na nossa operação de cadastro.
