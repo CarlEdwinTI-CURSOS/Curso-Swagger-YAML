@@ -1,4 +1,4 @@
-# Swagger II - aula 1 - XX
+# Swagger II - aula 1 - Iniciando a customização da API
 
 ## Video 1.3 - Customizando a operação cadastraCliente
 - Remover as variáveis, construtor e imports desnecessários
