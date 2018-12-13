@@ -54,6 +54,6 @@ Caso você tenha dúvidas em como criar a camada de negócio de uma API pode ver
 
 **Problema:** 
 
-***E agora já customizamos a operação, mas o ClienteService.java e o RespostasUtil.java não exitem em nossa API.***
+## E agora já customizamos a operação, mas o ClienteService.java e o RespostasUtil.java não exitem em nossa API. ##
 
 Vamos resolver isto já já.
