@@ -4,7 +4,23 @@
 - Remover as variáveis, construtor e imports desnecessários
 - Injetar o service **ClienteService.java** para salvar o cliente
 - Injetar o útil **RespostasUtil.java** para tratar **respostas com mensagens no header**
+```
+        @Autowired
+	private ClienteService clienteService;
+	
+	@Autowired
+	private RespostasUtil respostasUtil;
+```
+- Alterar o conteúdo do método cadastraCliente pelo customizado
+```
+try {
+            return clienteService.salva(cliente_);
+         } catch (Exception e) {
+          return respostasUtil.getErroInternoCliente(ClienteService.FALHA_AO_TENTAR_CADASTRAR_UM_CLIENTE);
+         }
+```
 
+***Código completo***
 ```
 @Controller
 public class ClienteApiController implements ClienteApi {
