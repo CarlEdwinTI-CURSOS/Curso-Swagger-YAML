@@ -1,13 +1,10 @@
 # Swagger II - aula 2 - Configurando a API
 
-## Video 2.1 - Importando arquivos de customização
-
-***OBS.***
-
 **Pessoal essa camadas de customização que contemplam os Services, Repository e persistência de dados no geral foi desenvolvida paralelamente por um outro time enquanto desenvolvia-mos a camada o script swagger.***
 
-## Caso você tenha dúvidas em como criar a camada de negócio de uma API pode ver os cursos de **Spring MVC**,  **Spring Boot** e **Java e JPA ##
+Caso você tenha dúvidas em como criar a camada de negócio de uma API pode ver os cursos de **Spring MVC**,  **Spring Boot** e **Java e JPA**
 
+## Video 2.1 - Importando arquivos de customização
 
 ***Agora é só importar essa camada e usar.***
 
