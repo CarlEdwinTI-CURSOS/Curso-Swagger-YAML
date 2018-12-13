@@ -1,4 +1,4 @@
-# Swagger II - aula 1 - xxxxx
+# Swagger II - aula 1 - Iniciando a customização da API
 
 ## Video 1.2 - Chamando a operaçao cadastraCliente
 - Chamar a operação de cadastro de cliente via Swagger UI
