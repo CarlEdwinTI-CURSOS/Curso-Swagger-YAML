@@ -137,10 +137,13 @@ Resposta da requisição
 Transação de DEPOSITO cadastrada com sucesso, retornou 201 created!
 
 
-Cadastrar uma transação de DEBITO via POSTMAN
-Método: POST
-URL: http://localhost:8085/bytebank-api/v1/transacao?tipo=debito
-Body: {
+**Cadastrar uma transação de DEBITO via POSTMAN**
+
+- Método: POST
+- URL: http://localhost:8085/bytebank-api/v1/transacao?tipo=debito
+- Body: 
+```
+{
     "valor":23.50,
      "conta": {
 		"agencia": 8756,
@@ -148,10 +151,11 @@ Body: {
 		"digito":0
 	}
 }
-HEADERS:
+```
+-HEADERS:
  Content-Type: application/json
-Basic MDEyMzQ1Njc4MzA6c2VuaGExMjM=
-
+ Authorization: Basic MDEyMzQ1Njc4MzA6c2VuaGExMjM=
+```
 
 Pressionar SEND.
 
