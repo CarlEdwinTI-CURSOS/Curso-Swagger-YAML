@@ -107,10 +107,13 @@ O Authorization no HEADER
 As informações da transacao no body 
 O tipo de transação como parâmetro de query no path
 
-Cadastrar uma transação de DEPOSITO via POSTMAN
-Método: POST
-URL: http://localhost:8085/bytebank-api/v1/transacao?tipo=deposito
-Body: {
+**Cadastrar uma transação de DEPOSITO via POSTMAN**
+
+- Método: POST
+- URL: http://localhost:8085/bytebank-api/v1/transacao?tipo=deposito
+- Body: 
+ ```
+ {
     "valor":134.67,
      "conta": {
 		"agencia": 8756,
@@ -118,9 +121,13 @@ Body: {
 		"digito":0
 	}
 }
-HEADERS:
+```
+
+- HEADERS:
+```
  Content-Type: application/json
-Basic MDEyMzQ1Njc4MzA6c2VuaGExMjM=
+ Authorization: Basic MDEyMzQ1Njc4MzA6c2VuaGExMjM=
+```
 
 Lembrando que as informações sobre a conta são aqueles que guardamos após o cadastro do cliente.
 
